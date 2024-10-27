@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счетчик очков в пинг-понг</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .court {
+            display: flex;
+            width: 80%;
+            height: 60%;
+            border: 2px solid #333;
+            position: relative;
+        }
+        .half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 5em;  /* Увеличен размер шрифта для чисел */
+        }
+        .scoreboard {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="court">
+    <div class="scoreboard" id="scoreboard"></div>
+    <div class="half left" onclick="addPoint('left')" id="leftScore">
+        0
+    </div>
+    <div class="half right" onclick="addPoint('right')" id="rightScore">
+        0
+    </div>
+</div>
+
+<script>
+    let scoreLeft = 0;
+    let scoreRight = 0;
+
+    function addPoint(side) {
+        if (side === 'left') {
+            scoreLeft++;
+            document.getElementById('leftScore').innerText = scoreLeft;
+        } else if (side === 'right') {
+            scoreRight++;
+            document.getElementById('rightScore').innerText = scoreRight;
+        }
+        // document.getElementById('scoreboard').innerText = `${scoreLeft}  ${scoreRight}`;
+    }
+</script>
+
+</body>
+</html>
